@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "`dirname "$0"`" || exit 1
+
 dl() {
 	d="`dirname "$1"`"
 	[ -d "$d" ] || mkdir -p "$d"
