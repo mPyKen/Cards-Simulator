@@ -1,0 +1,13 @@
+{
+  "name": "Cards Simulator",
+  "description": "Multiplayer Cards Game Simulator for Local Networks",
+  "repository": "https://github.com/colyseus/colyseus",
+  "logo": "https://github.com/colyseus/colyseus/blob/master/media/logo.png?raw=true",
+  "keywords": ["node", "multiplayer", "colyseus"],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Leave as 'false' to install required devDependencies.",
+      "value": "false"
+    }
+  }
+}

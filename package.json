@@ -1,0 +1,31 @@
+{
+  "name": "cards-simulator",
+  "version": "1.0.0",
+  "description": "Multiplayer Cards Game Simulator for Local Network",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "8.9.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@colyseus/monitor": "^0.12.2",
+    "bootstrap": "^4.5.0",
+    "colyseus": "^0.13.7",
+    "colyseus.js": "^0.13.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "serve-index": "^1.9.1",
+    "superagent": "^5.3.1"
+  },
+  "devDependencies": {
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}

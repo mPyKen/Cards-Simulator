@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title class="gamename">NEW GAME</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
+    <!-- swiperjs -->
+    <link rel="stylesheet" href="/dist/swiper-bundle.css">
+    <!-- custom -->
+    <link rel="stylesheet" href="cards.css" />
+  </head>
+  <body>
+
+    <!-- https://getbootstrap.com/docs/4.5/components/navbar/ -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="navbar"> <!-- navbar-dark bg-primary -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="gamename navbar-brand" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">NEW GAME</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#" onclick="globalZoom(this, event, 'in')">Zoom In</a>
+        <a class="dropdown-item" href="#" onclick="globalZoom(this, event, 'out')">Zoom Out</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/">Leave Game</a>
+      </div>
+      <!--<a type="button" class="gamename navbar-brand" href="/">NEW GAME</a>-->
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto" id="boardlinklist">
+          <!-- automatically filled by main.js -->
+        </ul>
+        <span class="navbar-text playercolor">
+          Player <var class="playername">PLAYERNAME</var>.
+        </span>
+      </div>
+    </nav>
+
+    <!-- Board content -->
+    <div class="main" id="boardcontentlist">
+      <!-- automatically filled by main.js -->
+    </div>
+
+    <!-- hand cards -->
+    <div id="hand" class="hand">
+      <div class="swiper-description">
+        <a class="pilename">name</a>
+        <a class="piledesc">desc</a>
+      </div>
+      <div id="handswiper" class="swiper-container swipe-cards">
+          <div class="swiper-wrapper">
+            <!-- automatically filled by main.js -->
+          </div>
+          <!--<div class="swiper-pagination"></div>-->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-scrollbar"></div>
+      </div>
+      <div class="swiper-buttons">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            More
+          </button>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" onclick="zoomActiveSlide(this, event);">Zoom Active</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" onclick="manageCards(this, event, 'shuffle')">Shuffle Cards</a>
+              <a class="dropdown-item" href="#" onclick="manageCards(this, event, 'sort')">Sort Cards</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" onclick="closePeek(this, event)">Close Peek</a>
+            </div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-warning btn-sm" onclick="returnCards(this, event, 'card')">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.646 4.354a.5.5 0 0 0 .708 0L8 1.707l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z"/>
+              <path fill-rule="evenodd" d="M8 11.5a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-1 0v9a.5.5 0 0 0 .5.5z"/>
+              <path fill-rule="evenodd" d="M2.5 14A1.5 1.5 0 0 0 4 15.5h8a1.5 1.5 0 0 0 1.5-1.5V7A1.5 1.5 0 0 0 12 5.5h-1.5a.5.5 0 0 0 0 1H12a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V7a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 0 0-1H4A1.5 1.5 0 0 0 2.5 7v7z"/>
+            </svg>
+            Return Active
+          </button>
+          <button type="button" class="btn btn-warning btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#" onclick="returnCards(this, event, 'card')">Return Active</a>
+            <a class="dropdown-item" href="#" onclick="returnCards(this, event, 'pile')">Return All Cards</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" onclick="returnCards(this, event, 'card', 'playerdiscard')">Discard Active</a>
+            <a class="dropdown-item" href="#" onclick="returnCards(this, event, 'pile', 'playerdiscard')">Discard All Cards</a>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger btn-sm" onclick="insert(this, event, 'before');">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.646 8.146a.5.5 0 0 1 .708 0L8 10.793l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+              <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0v-9A.5.5 0 0 1 8 1z"/>
+              <path fill-rule="evenodd" d="M1.5 13.5A1.5 1.5 0 0 0 3 15h10a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 13 4h-1.5a.5.5 0 0 0 0 1H13a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5v-8A.5.5 0 0 1 3 5h1.5a.5.5 0 0 0 0-1H3a1.5 1.5 0 0 0-1.5 1.5v8z"/>
+            </svg>
+            Place
+          </button>
+          <button type="button" class="btn btn-danger btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#" onclick="insert(this, event, 'left')">Place Left-Most</a>
+            <a class="dropdown-item" href="#" onclick="insert(this, event, 'before')">Place Left</a>
+            <a class="dropdown-item" href="#" onclick="insert(this, event, 'after')">Place Right</a>
+            <a class="dropdown-item" href="#" onclick="insert(this, event, 'right')">Place Right-Most</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="handtoggle">
+      <button type="button" class="handtogglebutton btn btn-primary btn-circle btn-md" onclick="toggleHand(this, event)">
+        <!-- https://icons.getbootstrap.com/ -->
+        <svg width="100%" height="100%" viewBox="0 0 16 16" class="handmark" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 1a2 2 0 0 0-2 2v4.5a.5.5 0 0 1-1 0V3a3 3 0 0 1 6 0v4.5a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+          <path fill-rule="evenodd" d="M3.405 6a.5.5 0 0 0-.498.45l-.912 6.9A1.5 1.5 0 0 0 3.488 15h9.024a1.5 1.5 0 0 0 1.493-1.65l-.913-6.9a.5.5 0 0 0-.497-.45h-9.19zm-1.493.35A1.5 1.5 0 0 1 3.405 5h9.19a1.5 1.5 0 0 1 1.493 1.35L15 13.252A2.5 2.5 0 0 1 12.512 16H3.488A2.5 2.5 0 0 1 1 13.251l.912-6.9z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- bootstrap -->
+    <script src="/dist/jquery/jquery.slim.min.js"></script>
+    <script src="/dist/popper/popper.min.js"></script>
+    <script src="/dist/bootstrap/js/bootstrap.min.js"></script>
+    <!-- swiperjs -->
+    <script src="/dist/swiper-bundle.js"></script>
+    <!-- colyseus.js -->
+    <script src="/dist/colyseus.js"></script>
+    <!-- main one -->
+    <script src="main.js"></script>
+  </body>
+</html>
