@@ -78,8 +78,8 @@ export class Card extends Schema {
   frontIdx = -1;
   @type("number")
   backIdx = -1;
-  constructor(id?: number, name?: string, faceup?: boolean, rotation?: number, frontresId?: number, backresId?: number, frontIdx?: number, backIdx?: number) {
-    super(); this.id = id; this.name = name; this.faceup = faceup; this.rotation = rotation; this.frontresId = frontresId; this.backresId = backresId; this.frontIdx = frontIdx; this.backIdx = backIdx;
+  constructor(name?: string, faceup?: boolean, rotation?: number, frontresId?: number, backresId?: number, frontIdx?: number, backIdx?: number) {
+    super(); this.name = name; this.faceup = faceup; this.rotation = rotation; this.frontresId = frontresId; this.backresId = backresId; this.frontIdx = frontIdx; this.backIdx = backIdx;
   }
 }
 export class Pile extends Schema {

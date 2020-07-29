@@ -422,7 +422,7 @@ class CatanGame extends GameRoom {
                 case 6: name = "Cloth"; break;
                 case 7: name = "Coin";  break;
             }
-            var card = new Card(i, name, true, 0, resfrontRes.id, resbackRes.id, i, 0);
+            var card = new Card(name, true, 0, resfrontRes.id, resbackRes.id, i, 0);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
 
@@ -474,7 +474,7 @@ class CatanGame extends GameRoom {
                 case 7: count = 2;  break;
                 case 8: count = 2;  break;
             }
-            var card = new Card(i, "Development", true, 0, devfrontRes.id, devbackRes.id, i, 0);
+            var card = new Card("Development", true, 0, devfrontRes.id, devbackRes.id, i, 0);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             for (var n = 0; n < count; n++) {
@@ -491,7 +491,7 @@ class CatanGame extends GameRoom {
                 case 6: count = 3;  break;
                 default: count = 2;  break;
             }
-            var card = new Card(i, "Blue", true, 0, blufrontRes.id, blubackRes.id, i, 0);
+            var card = new Card("Blue", true, 0, blufrontRes.id, blubackRes.id, i, 0);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             for (var n = 0; n < count; n++) {
@@ -506,7 +506,7 @@ class CatanGame extends GameRoom {
                 case 4: count = 4;  break;
                 default: count = 2;  break;
             }
-            var card = new Card(i, "Yellow", true, 0, yelfrontRes.id, yelbackRes.id, i, 0);
+            var card = new Card("Yellow", true, 0, yelfrontRes.id, yelbackRes.id, i, 0);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             for (var n = 0; n < count; n++) {
@@ -521,7 +521,7 @@ class CatanGame extends GameRoom {
                 case 7: count = 1;  break;
                 default: count = 2;  break;
             }
-            var card = new Card(i, "Green", true, 0, grefrontRes.id, grebackRes.id, i, 0);
+            var card = new Card("Green", true, 0, grefrontRes.id, grebackRes.id, i, 0);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             for (var n = 0; n < count; n++) {
@@ -612,7 +612,7 @@ class StarfarerGame extends GameRoom {
                 case 3: name = "Goods"; break;
                 case 4: name = "Ore";   break;
             }
-            var card = new Card(i, name, true, 0, resfrontRes.id, resbackRes.id, 20+i, 20);
+            var card = new Card(name, true, 0, resfrontRes.id, resbackRes.id, 20+i, 20);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
 
@@ -694,7 +694,7 @@ class TicketToRide extends GameRoom {
         for (var i = 0; i < 69; i++) {
             var name = "Ticket";
 
-            var card = new Card(i, name, true, 0, ticketRes.id, ticketRes.id, i, 69);
+            var card = new Card(name, true, 0, ticketRes.id, ticketRes.id, i, 69);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             card.origin = ticketDiscardPile.id;
@@ -723,7 +723,7 @@ class TicketToRide extends GameRoom {
             var n = 12;
             if (i == 8) { n = 14; }
 
-            var card = new Card(i, name, true, 0, trainRes.id, trainRes.id, i, 69);
+            var card = new Card(name, true, 0, trainRes.id, trainRes.id, i, 69);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             card.origin = trainDiscardPile.id;
@@ -808,7 +808,7 @@ class Hanabi extends GameRoom {
         for (var i = 0; i < 30; i++) {
             var name = "Hanabi";
 
-            var card = new Card(i, name, true, 0, deckres.id, deckres.id, i, 69);
+            var card = new Card(name, true, 0, deckres.id, deckres.id, i, 69);
             card.id = this.state.cards.length;
             this.state.cards.push(card);
             card.origin = rssDiscardPile.id;
@@ -939,12 +939,12 @@ class Cards extends GameRoom {
             //var idx = Math.floor(i / 13) * 13 + i % 13;
             var idx = (i % 4) * 13 + Math.floor(i / 4);
 
-            var card1 = new Card(i, name, true, 0, deckres.id, deckres.id, idx, 54);
+            var card1 = new Card(name, true, 0, deckres.id, deckres.id, idx, 54);
             card1.id = this.state.cards.length;
             this.state.cards.push(card1);
             card1.origin = rssDiscardPile1.id;
 
-            var card2 = new Card(i, name, true, 0, deckres.id, deckres.id, idx, 55);
+            var card2 = new Card(name, true, 0, deckres.id, deckres.id, idx, 55);
             card2.id = this.state.cards.length;
             this.state.cards.push(card2);
             card2.origin = rssDiscardPile2.id;
@@ -955,12 +955,12 @@ class Cards extends GameRoom {
         for (var i = 52; i < 54; i++) {
             var name = "Card";
 
-            var card1 = new Card(i, name, true, 0, deckres.id, deckres.id, i, 54);
+            var card1 = new Card(name, true, 0, deckres.id, deckres.id, i, 54);
             card1.id = this.state.cards.length;
             this.state.cards.push(card1);
             card1.origin = rssDiscardPile1.id;
 
-            var card2 = new Card(i, name, true, 0, deckres.id, deckres.id, i, 55);
+            var card2 = new Card(name, true, 0, deckres.id, deckres.id, i, 55);
             card2.id = this.state.cards.length;
             this.state.cards.push(card2);
             card2.origin = rssDiscardPile2.id;
