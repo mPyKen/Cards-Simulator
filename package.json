@@ -18,7 +18,7 @@
     "colyseus": "^0.13.7",
     "colyseus.js": "^0.13.1",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "serve-index": "^1.9.1",
